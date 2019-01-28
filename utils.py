@@ -178,3 +178,26 @@ def eval_precommit_adversarial_generator(data_x, val_data_generator, judge, adve
         accuracies.append(acc)
 
     return accuracies
+
+
+def eval_optimal_adversary_generator(val_data_generator, judge, num_repetitions):
+    # calculate true categories
+    data_x_sparse, data_y = next(val_data_generator)
+    true_categories = data_y.argmax(axis=1)
+    accuracies = []
+    # we have a noisy judge, so we need repetitions to find variance
+    for i in range(num_repetitions):
+        data_x_sparse, _ = next(val_data_generator)
+
+        predictions = judge.predict(data_x_sparse)
+
+        adversary = predictions.argsort(axis=1)
+        adversary_precommit = adversary[:, -1]
+
+        equal_selections = adversary_precommit == true_categories
+        adversary_precommit[equal_selections] = adversary[equal_selections, -2]
+
+        acc = eval_judge(predictions, true_categories, adversary_precommit)
+        accuracies.append(acc)
+
+    return accuracies
