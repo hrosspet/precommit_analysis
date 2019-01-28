@@ -38,7 +38,7 @@ def create_mnist_cnn_model(num_classes, input_shape, lr=None):
     return model
 
 
-def prepare_data():
+def prepare_data(num_classes):
     # input image dimensions
     img_rows, img_cols = 28, 28
 
