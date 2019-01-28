@@ -52,7 +52,7 @@ def eval_judge(predictions, true_categories, adversary_precommit):
     return accuracy
 
 
-def eval_precommit(data_x, data_y, model):
+def eval_precommit(data_x, data_y, model, num_classes):
     true_categories = data_y.argmax(axis=1)
 
     precommit = np.random.randint(0, num_classes, data_y.shape[0])
@@ -69,11 +69,11 @@ def eval_precommit(data_x, data_y, model):
     return accuracy
 
 
-def eval_precommit_generator(val_data_generator, model, num_repetitions):
+def eval_precommit_generator(val_data_generator, model, num_classes, num_repetitions):
     accuracies = []
     for i in range(num_repetitions):
         data_x, data_y = next(val_data_generator)
-        acc = eval_precommit(data_x, data_y, model)
+        acc = eval_precommit(data_x, data_y, model, num_classes)
         accuracies.append(acc)
 
     return accuracies
