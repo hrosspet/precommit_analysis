@@ -24,6 +24,14 @@ However, I must admit that an adversarially chosen lie can substantially decreas
 
 I showed that much of the gain in accuracy can be explained solely by the pre-commit. Nonetheless, the game of debate seems to me as a good tool for finding the candidate solutions (values for pre-commit) via agents of superior capabilities, and for mitigating the negative effect of the adversary.
 
+# Instructions
+
+Depending on which experiments you want to evaluate, you should:
+
+1) Train the judge and save the model via`train_judge.ipynb`
+2) Train the selected adversary and save the model via `train_adversary.ipynb`
+3) Then you will be able to evaluate `results.ipynb` or `future_work.ipynb`
+
 # Future work
 
 It's a question whether we can talk about honest and adversarial agents in the context of AI safety. Either we accept that agents may generally want to deceive us, then we can't assume even one honest agent. Or we can decide to assume both of the agents are honest. But even if both agents are acting in a good faith there will be cases of disagreement. This is a known problem usually solved by ensembling methods. Could the game of debate be used as an addition to the existing ensembling methods? If you want to see some preliminary exploration of this idea, take a look at the future_work.ipynb notebook.
