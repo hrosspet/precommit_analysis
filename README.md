@@ -2,6 +2,8 @@
 
 I find AI Safety via Debate [1] to be a super interesting article. I love how the authors take an important problem, translate it into a tractable one and solve it via a simple, but powerful idea. All the while still being able to draw some theoretical insights about the original goal.
 
+This project is based on a keras example classifier of MNIST digits [2].
+
 # My summary of the paper
 
 The authors are concerned with AI alignment which is a big topic in AI safety, as we would like to use AI for solving our goals, but it is unclear how to align actions of an AI which we are unable to follow because it has superhuman capabilities.
@@ -29,3 +31,5 @@ It's a question whether we can talk about honest and adversarial agents in the c
 # References
 
 \[1\] [AI safety via debate](https://arxiv.org/abs/1805.00899v2), Irving, Geoffrey; Christiano, Paul; Amodei, Dario, 2018
+
+\[2\] https://github.com/keras-team/keras/blob/master/examples/mnist_cnn.py
